@@ -129,9 +129,9 @@ delete last data
 > Returns - the success or failure of the deletion
 
 -----------
-#### ArrayList&lt;T&amp;* clone()
-make a new object which is same as this 
-동일한 객체 생성	
+#### ArrayList&lt;T&amp;&#42; clone()
+make a new object which is same as this     
+동일한 객체 생성    	
 > Returns - a new object which is same as this 
 
 ***********
