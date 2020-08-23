@@ -102,7 +102,7 @@ set data at index
 delete data at index     
 다음 위치 값 제거     
 > Returns - the success or failure of the deletion    
-> Parameter - data: a deleting data, index: a index of array    
+> Parameter - index: a index of array    
 
 -----------
 #### T getFirst()
