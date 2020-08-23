@@ -62,7 +62,7 @@ Destructor : 소멸자
 #### int size()
 return the size of array    
 배열 크기 반환   
-###### Returns - the size of array
+> Returns - the size of array
 
 -----------
 #### T* get()
@@ -80,59 +80,59 @@ get value at index
 #### bool add(T data)
 add data at the end    
 맨 뒤에 값 추가    
-> Returns - the success or failure of the adding
-> Parameter - data: a adding data
+> Returns - the success or failure of the adding    
+> Parameter - data: a adding data    
 
 -----------
 #### bool add(T data, int index)
 add data at index    
 다음 위치에 값 추가    
-> Returns - the success or failure of the adding
-> Parameter - data: a adding data, index: a index of array
+> Returns - the success or failure of the adding    
+> Parameter - data: a adding data, index: a index of array    
 
 -----------
 #### bool set(T data, int index)
 set data at index    
 다음 위치 값 변경    
-> Returns - the success or failure of the setting
-> Parameter - data: a setting data, index: a index of array
+> Returns - the success or failure of the setting    
+> Parameter - data: a setting data, index: a index of array    
 
 -----------
 #### bool del(int index)
 delete data at index     
 다음 위치 값 제거     
-> Returns - the success or failure of the deletion
-> Parameter - data: a deleting data, index: a index of array
+> Returns - the success or failure of the deletion    
+> Parameter - data: a deleting data, index: a index of array    
 
 -----------
 #### T getFirst()
 get the first data    
 맨 처음 값 가져오기    
-> Returns - the data at the first position
+> Returns - the data at the first position    
 
 -----------
 #### T getLast()
 get the last data    
 맨 마지막 값 가져오기    
-> Returns - the data at the last position
+> Returns - the data at the last position    
 
 -----------
 #### bool delFirst()
 delete the first data    
 맨 처음 값 제거    
-> Returns - the success or failure of the deletion
+> Returns - the success or failure of the deletion    
 
 -----------
 #### bool delLast()
 delete last data    
 맨 마지막 값 제거    
-> Returns - the success or failure of the deletion
+> Returns - the success or failure of the deletion    
 
 -----------
 #### ArrayList&lt;T&gt;&#42; clone()
 make a new object which is same as this     
 동일한 객체 생성    	
-> Returns - a new object which is same as this 
+> Returns - a new object which is same as this     
 
 ***********
 ## Example : 예제
