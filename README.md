@@ -97,5 +97,42 @@ set data at index
 > Returns - the success or failure of the setting
 > Parameter - data: a setting data, index: a index of array
 
+-----------
+#### bool del(int index)
+delete data at index     
+다음 위치 값 제거     
+> Returns - the success or failure of the deletion
+> Parameter - data: a deleting data, index: a index of array
 
+-----------
+#### T getFirst()
+get the first data    
+맨 처음 값 가져오기    
+> Returns - the data at the first position
+
+-----------
+#### T getLast()
+get the last data    
+맨 마지막 값 가져오기    
+> Returns - the data at the last position
+
+-----------
+#### bool delFirst()
+delete the first data    
+맨 처음 값 제거    
+> Returns - the success or failure of the deletion
+
+-----------
+#### bool delLast()
+delete last data    
+맨 마지막 값 제거    
+> Returns - the success or failure of the deletion
+
+-----------
+#### ArrayList&lt;T&amp;* clone()
+make a new object which is same as this 
+동일한 객체 생성	
+> Returns - a new object which is same as this 
+
+***********
 ## Example : 예제
