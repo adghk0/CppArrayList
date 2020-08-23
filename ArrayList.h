@@ -1,3 +1,8 @@
+/*
+ArrayList class
+Made by Eom Kyoungjun
+Copyright 2020. Eom Kyoungjun. All rights reversed.
+*/
 #pragma once
 
 // Arraylist class
