@@ -129,10 +129,233 @@ delete last data
 > Returns - the success or failure of the deletion
 
 -----------
-#### ArrayList&lt;T&amp;&#42; clone()
+#### ArrayList&lt;T&gt;&#42; clone()
 make a new object which is same as this     
 동일한 객체 생성    	
 > Returns - a new object which is same as this 
 
 ***********
 ## Example : 예제
+### Example1
+``` C++
+#include <iostream>
+#include "ArrayList.h"
+
+void printArr(ArrayList<int>* arr) {
+	std::cout << "[";
+	for (int i = 0; i < arr->size(); i++) {
+		std::cout << arr->get(i);
+		if(i < arr->size() - 1)
+			std::cout << ", ";
+	}
+	std::cout << "]" << std::endl;
+}
+
+int main() {
+	ArrayList<int>* array = new ArrayList<int>();
+
+	array->add(10);
+	array->add(20);
+	array->add(30);
+	array->add(40);
+	array->add(50);
+	array->add(60);
+	array->add(70);
+	printArr(array);
+
+	std::cout << std::endl << "=========== array->add(15, 1);" << std::endl;
+	array->add(15, 1);
+	printArr(array);
+
+	std::cout << std::endl << "=========== array->add(80);" << std::endl;
+	array->add(80);
+	printArr(array);
+
+	std::cout << std::endl << "=========== array->del(2);" << std::endl;
+	array->del(2);
+	printArr(array);
+
+	std::cout << std::endl << "=========== array->delFirst();" << std::endl;
+	array->delFirst();
+	printArr(array);
+
+	std::cout << std::endl << "=========== array->delLast();" << std::endl;
+	array->delLast();
+	printArr(array);
+	
+	std::cout << std::endl << "=========== array->set(25, 1);" << std::endl;
+	array->set(25, 1);
+	printArr(array);
+
+	return 0;
+}
+```
+``` BASH
+[10, 20, 30, 40, 50, 60, 70]
+
+=========== array->add(15, 1);
+[10, 15, 20, 30, 40, 50, 60, 70]
+
+=========== array->add(80);
+[10, 15, 20, 30, 40, 50, 60, 70, 80]
+
+=========== array->del(2);
+[10, 15, 30, 40, 50, 60, 70, 80]
+
+=========== array->delFirst();
+[15, 30, 40, 50, 60, 70, 80]
+
+=========== array->delLast();
+[15, 30, 40, 50, 60, 70]
+
+=========== array->set(25, 1);
+[15, 25, 40, 50, 60, 70]
+```
+This code is the simple example about ArrayList.    
+다음 코드는 간단한 ArrayList 예제 입니다.    
+    
+``` C++
+void printArr(ArrayList<int>* arr) {
+	std::cout << "[";
+	for (int i = 0; i < arr->size(); i++) {
+		std::cout << arr->get(i);
+		if(i < arr->size() - 1)
+			std::cout << ", ";
+	}
+	std::cout << "]" << std::endl;
+}
+```
+this function prints int ArrayList.   
+이 함수는 ArrayList를 출력합니다.   
+
+-------------
+### Example2
+``` C++
+#pragma warning(disable:4996)
+
+#include <iostream>
+#include "ArrayList.h"
+
+class Student {
+public:
+	int grade;
+	char* name;
+
+	Student(int grade, char* name) {
+		this->grade = grade;
+		this->name = name;
+	}
+};
+
+void printArr(ArrayList<Student*>* arr) {
+	std::cout << "[";
+	for (int i = 0; i < arr->size(); i++) {
+		std::cout << "(" << arr->get(i)->name << "," << arr->get(i)->grade << ")";
+		if (i < arr->size() - 1)
+			std::cout << ", ";
+	}
+	std::cout << "]" << std::endl;
+}
+
+int main() {
+	char a[] = "Kim", b[] = "Lee", c[] = "Park";
+	ArrayList<Student*>* array = new ArrayList<Student*>();
+
+	array->add(new Student(1, a));
+	printArr(array);
+
+	std::cout << std::endl << "=========== array->add(new Student(2, b));" << std::endl;
+	array->add(new Student(2, b));
+	printArr(array);
+
+	std::cout << std::endl << "=========== array->set(new Student(3, c), 1);" << std::endl;
+	array->set(new Student(3, c), 1);
+	printArr(array);
+
+	std::cout << std::endl << "=========== array->del(0);" << std::endl;
+	array->del(0);
+	printArr(array);
+
+	return 0;
+}
+```
+``` BASH
+[(Kim,1)]
+
+=========== array->add(new Student(2, b));
+[(Kim,1), (Lee,2)]
+
+=========== array->set(new Student(3, c), 1);
+[(Kim,1), (Park,3)]
+
+=========== array->del(0);
+[(Park,3)]
+```
+This code shows how to use ArrayList with user-defined class.    
+이 코드는 어떻게 사용자 정의 클래스로 ArrayList를 사용하는지 보여줍니다.    
+
+-------------
+### Example3
+``` C++
+#include <iostream>
+
+#include "ArrayList.h"
+
+void printArr(ArrayList<int>* arr) {
+	if (arr == NULL) {
+		std::cout << "null" << std::endl;
+		return;
+	}
+
+	std::cout << "[";
+	for (int i = 0; i < arr->size(); i++) {
+		std::cout << arr->get(i);
+		if (i < arr->size() - 1)
+			std::cout << ", ";
+	}
+	std::cout << "]" << std::endl;
+}
+
+int main() {
+	ArrayList<int> * a, * b = NULL;
+	a = new ArrayList<int>();
+	
+	a->add(10);
+	a->add(20);
+
+	std::cout << "a: ";
+	printArr(a);
+	std::cout << "b: ";
+	printArr(b);
+
+
+	std::cout << std::endl << "=========== b = a->clone();" << std::endl;
+	b = a->clone();
+	std::cout << "a: ";
+	printArr(a);
+	std::cout << "b: ";
+	printArr(b);
+
+
+	std::cout << std::endl << "=========== b->delFirst();" << std::endl;
+	b->delFirst();
+	std::cout << "a: ";
+	printArr(a);
+	std::cout << "b: ";
+	printArr(b);
+}
+```
+``` BASH
+a: [10, 20]
+b: null
+
+=========== b = a->clone();
+a: [10, 20]
+b: [10, 20]
+
+=========== b->delFirst();
+a: [10, 20]
+b: [20]
+```
+This code shows how to use clone() method. Clone object can be different from origin object.   
+이 코드는 clone() 메소드의 사용법을 보여줍니다. 복사된 객체는 원래의 객체와 달라질 수 있습니다.    
